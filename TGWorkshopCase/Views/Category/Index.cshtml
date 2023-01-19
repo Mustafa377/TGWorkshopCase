@@ -1,0 +1,80 @@
+﻿@model List<TGWorkshopCase.Models.Category>
+@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        html, body, .container {
+            height: 100%;
+        }
+
+        .container {
+            display: table;
+            width: 100%;
+            margin-top: -50px;
+            padding: 50px 0 0 0; /*set left/right padding according to needs*/
+            box-sizing: border-box;
+        }
+
+        header {
+            background: yellow;
+            height: 50px;
+        }
+
+        .row {
+            height: 100%;
+            display: table-row;
+        }
+
+        .col-md-4 {
+            background: yellow;
+        }
+
+        .col-md-8 {
+            background: pink;
+        }
+
+        .row .no-float {
+            display: table-cell;
+            float: none;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding:20px;">Header</header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 no-float" style="padding:20px;">Navigation</div>
+            <div class="col-md-8 no-float" style="padding:20px;">
+
+                <table style="padding:20px;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Category Description</th>
+                        <th>Category Status</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CategoryID</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.CategoryDescription</td>
+                            <td>@item.CategoryStatus</td>
+                        </tr>
+                    }
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
